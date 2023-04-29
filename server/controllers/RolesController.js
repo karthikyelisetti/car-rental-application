@@ -15,8 +15,16 @@ const RolesController = async(req, res) => {
             res.send({ message: `Role is already assigned to ${user_id}`, data })
         );
     })
+};
+
+// controller to fetch the user data based on the id provided
+const userbyroleController = async(req, res) => {
+    const{ id } = req.body;
+    const userroledata = await RoleModel.find({ _id: id }).populate(user_id);
+    res.send(userroledata);
 }
 
 module.exports = {
-    RolesController
+    RolesController,
+    userbyroleController
 }
