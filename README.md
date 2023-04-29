@@ -19,9 +19,9 @@
     RolesController
     CarsController
   #### Routes
-    UserRoutes
-    RolesRoutes
-    CarsRoutes
+    UserRouter
+    RolesRouter
+    CarsRouter
   #### APIs List (/auth)
     User Registration (POST): /auth/register
     User Login (POST): /auth/login
