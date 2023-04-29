@@ -6,12 +6,11 @@ const saltRounds = 10;
 
 const UserRegisterController = async(req, res) => {
     const { name, password, email } = req.body;
-    console.log(name, password, email);
+    const hash = await bcrypt.hash(password, saltRounds);
+    console.log(name, hash, email);
     let userobj = {
         name: name,
-        password: bcrypt.hash(password, saltRounds, function(err, hash) {
-            return hash;
-        }),
+        password: hash,
         email: email
     }
 
