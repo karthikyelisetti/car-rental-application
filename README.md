@@ -27,3 +27,6 @@
     User Login (POST): /auth/login
     Defining user roles (POST): /auth/roles
     Fetching the car details (GET): /auth/cardetails
+   #### Notes
+    Use Bcrypt library, to encrypt the password and store it and comparing the password during login (https://www.npmjs.com/package/bcrypt)
+    Multer for picture upload :(profile_pic of cars) (https://www.npmjs.com/package/multer)
