@@ -11,9 +11,9 @@
   ### Database structure
   #### Database name: car_rental_system
   #### Models
-    UserModel
-    RolesModel
-    CarsModel
+    UserModel (Fields: name, email, password)
+    RolesModel (Fields: id (ref: UserModel), role)
+    CarsModel (Fields: id (ref: UserModel), carname, company, type, price)
   #### Controllers
     UserController
     RolesController
@@ -24,7 +24,6 @@
     CarsRoutes
   #### APIs List (/auth)
     User Registration (POST): /auth/register
+    User Login (POST): /auth/login
     Defining user roles (POST): /auth/roles
     Fetching the car details (GET): /auth/cardetails
-    
-
