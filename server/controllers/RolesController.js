@@ -9,10 +9,10 @@ const RolesController = async(req, res) => {
     }
     RoleModel.find({ user_id }).then((data) => {
         RoleModel(roleobj).save().then((data) => 
-            res.send({ message: `Role is added to the ${user_id}` })
+            res.send({ message: `Role is added to the ${user_id}`, data })
         )
         .catch((error) =>
-            res.send({ message: `Role is already assigned to ${user_id}`, data })
+            res.send({ message: `Role is already assigned to ${user_id}`, error })
         );
     })
 };
@@ -20,7 +20,7 @@ const RolesController = async(req, res) => {
 // controller to fetch the user data based on the id provided
 const userbyroleController = async(req, res) => {
     const{ id } = req.body;
-    const userroledata = await RoleModel.find({ _id: id }).populate(user_id);
+    const userroledata = await RoleModel.find({ _id: id }).populate('user_id');
     res.send(userroledata);
 }
 

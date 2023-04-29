@@ -6,6 +6,6 @@ const { RolesController , userbyroleController} = require("../controllers/RolesC
 
 UserRouter.post("/register", UserRegisterController);
 UserRouter.post("/roles", RolesController);
-UserRouter.post("/userbyrole", userbyroleController);
+UserRouter.post("/getuserbyrole", userbyroleController);
 
 module.exports = UserRouter;
