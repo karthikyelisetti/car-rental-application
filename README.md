@@ -13,7 +13,7 @@
   #### Models
     UserModel (Fields: name, email, password)
     RolesModel (Fields: id (ref: UserModel), role)
-    CarsModel (Fields: id (ref: UserModel), carname, company, type, price)
+    CarsModel (Fields: id (ref: UserModel), carname, company, type, price, image)
   #### Controllers
     UserController
     RolesController
