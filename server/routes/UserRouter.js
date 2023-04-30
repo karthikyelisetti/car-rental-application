@@ -9,6 +9,7 @@ UserRouter.post("/register", UserRegisterController);
 UserRouter.post("/roles", RolesController);
 UserRouter.post("/getuserbyrole", userbyroleController);
 UserRouter.post("/addcardetails", addCarDetailsController);
-UserRouter.post("/getusercardetails", getCarDetailsController);
+
+UserRouter.get("/getusercardetails/:owner", getCarDetailsController);
 
 module.exports = UserRouter;

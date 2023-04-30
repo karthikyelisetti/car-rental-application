@@ -6,6 +6,10 @@ const CarsSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
+    owner: {
+        type: String,
+        required: true
+    },
     carname: {
         type: String,
         required: true
