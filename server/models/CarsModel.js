@@ -19,7 +19,7 @@ const CarsSchema = new Schema(
       type: String,
       required: true,
     },
-    car_type: {
+    cartype: {
       type: String,
       required: true,
     },
@@ -34,7 +34,7 @@ const CarsSchema = new Schema(
     booking_status: {
       type: String,
       required: true,
-    }
+    },
   },
   {
     timestamps: true,
