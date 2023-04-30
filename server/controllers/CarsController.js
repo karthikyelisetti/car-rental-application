@@ -1,6 +1,6 @@
 const CarModel = require("../models/CarsModel");
 
-const addCarDetailsController = async(req, res) => {
+const addCarsController = async(req, res) => {
     const { user_id, owner, carname, company, type, rental_price, image } = req.body;
 
     let carobj = {
@@ -21,17 +21,17 @@ const addCarDetailsController = async(req, res) => {
     );
 };
 
-const getCarDetailsController = async(req, res) => {
-    CarModel.find({ owner: req.params.owner }).then((data) => {
+const getAllCarsController = async(req, res) => {
+    CarModel.find().then((data) => {
         if (data.length !== 0) {
             res.send(data);
         }else {
-            res.json({ message: `User(${owner}) do not own cars!` });
+            res.json({ message: `Coming Soon!...We will be updating the Car models soon......` });
         }
     });
 };
 
 module.exports = {
-    addCarDetailsController,
-    getCarDetailsController
+    addCarsController,
+    getAllCarsController
 }

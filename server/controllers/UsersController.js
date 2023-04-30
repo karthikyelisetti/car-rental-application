@@ -4,14 +4,15 @@ const saltRounds = 10;
 // const myPlaintextPassword = 's0/\/\P4$$w0rD';
 // const someOtherPlaintextPassword = 'not_bacon';
 
-const UserRegisterController = async(req, res) => {
+const addUserController = async(req, res) => {
     const { name, password, email } = req.body;
     const hash = await bcrypt.hash(password, saltRounds);
     console.log(name, hash, email);
     let userobj = {
         name: name,
         password: hash,
-        email: email
+        email: email,
+        role: role
     }
 
     UserModel.find({name}).then((data) => {
@@ -29,5 +30,5 @@ const UserRegisterController = async(req, res) => {
 }
 
 module.exports = {
-    UserRegisterController
+    addUserController
 }
