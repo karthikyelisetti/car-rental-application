@@ -20,7 +20,6 @@
     CarsController
   #### Routes
     UserRouter
-    RolesRouter
     CarsRouter
   #### APIs List (/auth)
     User Registration (POST): /auth/register
