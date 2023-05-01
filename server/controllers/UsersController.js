@@ -4,11 +4,11 @@ const saltRounds = 10;
 
 const addUserController = async (req, res) => {
   const { name, password, email, role } = req.body;
-  const hash = await bcrypt.hash(password, saltRounds);
-  console.log(name, hash, email, role);
+  // const hash = await bcrypt.hash(password, saltRounds);
+  console.log(name, password, email, role);
   let userobj = {
     name: name,
-    password: hash,
+    password: password,
     email: email,
     role: role,
   };
@@ -29,6 +29,15 @@ const addUserController = async (req, res) => {
   });
 };
 
+const updateUserController = async(req, res) => {  
+  UserModel.find({ name: req.params.name }).then(async (data) => {
+    let filter = {"name": data[0].name};
+    const user = await UserModel.updateOne(filter, req.body);
+    res.send({ message: user });
+  });
+};
+
 module.exports = {
   addUserController,
+  updateUserController
 };

@@ -1,18 +1,26 @@
 const CarModel = require("../models/CarsModel");
 
 const addCarController = async (req, res) => {
-  const { user_id, owner, carname, company, type, rental_price, image } =
-    req.body;
+  const {
+    user_id,
+    owner,
+    carname,
+    company,
+    cartype,
+    rental_price,
+    image,
+    booking_status,
+  } = req.body;
 
   let carobj = {
     user_id: user_id,
     owner: owner,
     carname: carname,
     company: company,
-    cartype: type,
+    cartype: cartype,
     rental_price: rental_price,
     image: image,
-    booking_status,
+    booking_status: booking_status,
   };
 
   CarModel(carobj)
@@ -43,7 +51,16 @@ const getAllCarsController = async (req, res) => {
   });
 };
 
+const updateCarController = async (req, res) => {
+  CarModel.find({ carname: req.params.carname }).then((data) => {
+    let filter = {"carname": data[0].carname};
+    const car = CarModel.updateOne(filter, req.body);
+    res.send({message: car});
+  })
+}
+
 module.exports = {
   addCarController,
   getAllCarsController,
+  updateCarController
 };

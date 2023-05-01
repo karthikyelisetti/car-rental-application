@@ -11,12 +11,20 @@ const BookingSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Car",
     },
+    carname: {
+      type: String,
+      required: true,
+    },
     bookingid: {
       type: String,
       required: true,
     },
     booking_price: {
       type: Number,
+      required: true,
+    },
+    booked_by:{
+      type: String,
       required: true,
     },
     booking_date: {
