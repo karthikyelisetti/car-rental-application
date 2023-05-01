@@ -52,11 +52,15 @@ const getAllCarsController = async (req, res) => {
 };
 
 const updateCarController = async (req, res) => {
-  CarModel.find({ carname: req.params.carname }).then((data) => {
-    let filter = {"carname": data[0].carname};
-    const car = CarModel.updateOne(filter, req.body);
-    res.send({message: car});
-  })
+  CarModel.find({ carname: req.params.carname }).then(async (data) => {
+    try{
+      let filter = {"carname": data[0].carname};
+      const car = await CarModel.updateOne(filter, req.body);
+      res.send({message: car});
+    }catch(error){
+      res.send({message: "Please provide a valid car name to update the details!"});
+    }    
+  });
 }
 
 module.exports = {

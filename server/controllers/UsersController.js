@@ -31,9 +31,14 @@ const addUserController = async (req, res) => {
 
 const updateUserController = async(req, res) => {  
   UserModel.find({ name: req.params.name }).then(async (data) => {
-    let filter = {"name": data[0].name};
-    const user = await UserModel.updateOne(filter, req.body);
-    res.send({ message: user });
+    try{
+      let filter = {"name": data[0].name};
+      const user = await UserModel.updateOne(filter, req.body);
+      res.send({ message: user });
+    }catch(error){
+      res.send({message: "Please provide a valid username to update the details!"});
+    }
+    
   });
 };
 
