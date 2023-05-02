@@ -4,11 +4,11 @@ const saltRounds = 10;
 
 const addUserController = async (req, res) => {
   const { name, password, email, role } = req.body;
-  // const hash = await bcrypt.hash(password, saltRounds);
-  console.log(name, password, email, role);
+  const hash = await bcrypt.hash(password, saltRounds);
+  console.log(name, hash, email, role);
   let userobj = {
     name: name,
-    password: password,
+    password: hash,
     email: email,
     role: role,
   };
