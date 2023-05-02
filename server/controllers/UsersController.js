@@ -15,12 +15,12 @@ const addUserController = async (req, res) => {
 
   UserModel.find({ name }).then((data) => {
     if (data.length !== 0) {
-      res.json({ message: `User(${name}) already exists!` });
+      res.json({ message: `User (${name}) already exists!` });
     } else {
       UserModel(userobj)
         .save()
         .then((data) =>
-          res.send({ message: `User(${name}) registered successfully`, data })
+          res.send({ message: `User (${name}) registered successfully`, data })
         )
         .catch((error) =>
           res.send({ message: "User registration unsuccessful!", error })

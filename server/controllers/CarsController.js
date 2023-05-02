@@ -45,7 +45,7 @@ const getAllCarsController = async (req, res) => {
       res.send(data);
     } else {
       res.json({
-        message: `Coming Soon!...We will be updating the Car models soon......`,
+        message: `Coming Soon!...We will be updating the Car model soon......`,
       });
     }
   });
